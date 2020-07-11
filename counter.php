@@ -1,8 +1,8 @@
 <?php
 	// KONFIGURASI KONEKSI DATABASE
 	$hostname	= "localhost";
-	$db_user	= "michael";
-	$db_pass	= "michael";
+	$db_user	= "root";
+	$db_pass	= "your_pass";
 	$db_name	= "counter";
 	
 	// KONEKSI DTABASE
@@ -26,7 +26,6 @@
 		die("Retriving Query Error<br>".$query);
 	}
 
-
 	// MEMBACA ALAMAT IP PENGUNJUNG
 	$visitor_ip = $_SERVER['REMOTE_ADDR'];
 
@@ -37,14 +36,11 @@
 	}
 
 	// MENGHAPUS DATA DALAM TABEL
-
 	if(isset($_GET['hapus'])) {
 		$query = "TRUNCATE TABLE counter_table";
 		$result = mysqli_query($connection, $query);
 		header('location: '.$_SERVER['PHP_SELF']);
-
 	} 
-
 
 ?>
 
@@ -52,23 +48,17 @@
 <html>
 <head>
 	<title>Visitor Counter</title>
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
 	<div class="container d-flex justify-content-center">
-
-		
 	</div>
-
 	<div class="container">
 		<div class="row m-5">
 			<div class="col-5">
-				
 				<div class="card" style="width: 20rem;">
 					<div class="card-header">
 						<h1 class="display-5">
@@ -85,7 +75,6 @@ KUNJUNGI</a>
 RESET DATA</a>
 					</div>
 				</div>
-
 			</div>
 			<div class="col-7">
 				<table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -143,21 +132,16 @@ RESET DATA</a>
 				    <?php } } else {
 				    	echo "0 results";
 				    } $connection->close(); ?>
-
-
-		
 				  </tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-
 	<div class="container d-flex justify-content-center">
 		<div class="page-footer m-5">
 			<p>Copyright @ 2020 | <a href="https://github.com/janzenfaidiban" target="_blank">Janzen Faidiban</a></p>
 		</div>
 	</div>
-
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
@@ -166,6 +150,5 @@ RESET DATA</a>
 			$('#example').DataTable();
 		});
 	</script>
-
 </body>
 </html>
